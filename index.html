@@ -11,49 +11,37 @@
 </head>
 <body>
     <section>
-        <h1>Desplegar Informacion</h1>
+        <h1>Desplegar Informacion de los Superheroes</h1>
   
         <!-- TABLE CONSTRUCTION-->
         <table id='table'>
             <!-- HEADING FORMATION -->
             <tr>
                 <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Coding Score</th>
-                <th>GFG Articles</th>
+                <th>Edad</th>
+                <th>Identidad Secreta</th>
+                <th>Poderes</th>
             </tr>
-  
-            <script>
+          <script>
                 $(document).ready(function () {
   
                     // FETCHING DATA FROM JSON FILE
-                    $.getJSON("gfgdetails.json", 
-                            function (data) {
-                        var student = '';
+                    $.getJSON("superheroes.json", function (data) {
+                        var heroe = '';
   
                         // ITERATING THROUGH OBJECTS
                         $.each(data, function (key, value) {
   
-                            //CONSTRUCTION OF ROWS HAVING
-                            // DATA FROM JSON OBJECT
-                            student += '<tr>';
-                            student += '<td>' + 
-                                value.GFGUserName + '</td>';
-  
-                            student += '<td>' + 
-                                value.NoOfProblems + '</td>';
-  
-                            student += '<td>' + 
-                                value.TotalScore + '</td>';
-  
-                            student += '<td>' + 
-                                value.Articles + '</td>';
-  
-                            student += '</tr>';
+                            heroe += '<tr>';
+                                heroe += '<td>' + value.name + '</td>';
+                                heroe += '<td>' + value.age + '</td>';
+                                heroe += '<td>' + value.secretIdentity + '</td>';
+                                heroe += '<td>' + value.powers +  '</td>';
+                                heroe += '</tr>';
                         });
                           
                         //INSERTING ROWS INTO TABLE 
-                        $('#table').append(student);
+                        $('#table').append(heroe);
                     });
                 });
             </script>
