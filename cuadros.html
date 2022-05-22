@@ -10,116 +10,15 @@
 </head>
 <body>
     <header>
-        <section class="showcase">
-            <video autoplay muted loop 
-            src="doctor2.mp4">
-        </video>
-        <h1 class="title">Tomas</h1>
-        </section>
+        
     </header>
     <nav>Nav</nav>
     <aside>
-        <h1>Amigos</h1>
-        <form method="POST" action="./amiguitos.php" enctype="multipart/form-data">
-    
-        <table>
-            <tr>
-                <td><label for="nombre">Nombre:</label></td>
-                <td><input type="text" id="nombre" name="nombre" placeholder="Aqui va solo tu nombre"></td>
-            </tr>
-            <tr>
-                <td><label for="estatura">Estatura:</label></td>
-                <td><input type="text" id="estatura" name="estatura" placeholder="Aqui va tu telefono a 10 digitos"></td>
-            </tr>
-            <tr>
-                <td><label for="hobby">Hobby:</label></td>
-                <td><input type="text" id="hobby" name="hobby" placeholder="Aqui va tu telefono a 10 digitos"></td>
-            </tr>
-        </table>
-    
-        <h3>Color favorito</h3>
-        <input type="radio" id="id_color" name="id_color" value="1">
-        <label for="1">Rojo</label><br>
-        <input type="radio" id="id_color" name="id_color" value="2">
-        <label for="2">Azul</label><br>
-        <input type="radio" id="id_color" name="id_color" value="3">
-        <label for="3">Amarillo</label><br>
-        <input type="radio" id="id_color" name="id_color" value="4">
-        <label for="4">Verde</label><br>
-        <input type="radio" id="id_color" name="id_color" value="5">
-        <label for="4">Rosa</label><br>
-    
-        <h3>Sexo de tu amigo</h3>
-        <input type="radio" id="id_sexo" name="id_sexo" value="1">
-        <label for="1">Hombre</label><br>
-        <input type="radio" id="id_sexo" name="id_sexo" value="2">
-        <label for="2">Mujer</label><br>
-    
-        <h3>Mascota</h3>
-        <input type="radio" id="id_mascota" name="id_mascota" value="1">
-        <label for="1">Perro</label><br>
-        <input type="radio" id="id_mascota" name="id_mascota" value="2">
-        <label for="2">Gato</label><br>
-        <input type="radio" id="id_mascota" name="id_mascota" value="3">
-        <label for="3">Hamster</label><br>
-        <input type="radio" id="id_mascota" name="id_mascota" value="4">
-        <label for="4">Pajaro</label><br>
-        <input type="radio" id="id_mascota" name="id_mascota" value="5">
-        <label for="5">Raton</label><br>
-        <input type="submit" name="submit" value="Introducir"></body>
-    
-      
-    </form>
+        
     </aside>
     <section>Section
     <article>
-<?php
-echo "<table style='border: solid 1px red;'>";
-    echo "<tr><th>Id</th><th>Nombre</th><th>Nombre Real</th><th>Poderes</th><th>Primera Aparicion</th><th>Biografia</th></tr>";
-    
-    class TableRows extends RecursiveIteratorIterator {
-      function __construct($it) {
-        parent::__construct($it, self::LEAVES_ONLY);
-      }
-    
-      function current() {
-        return "<td style='width:auto;border:1px solid red;'>" . parent::current(). "</td>";
-      }
-    
-      function beginChildren() {
-        echo "<tr>";
-      }
-    
-      function endChildren() {
-        echo "</tr>" . "\n";
-      }
-    }
-    
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "avengers5";
-    
-    try {
-      $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      $stmt = $conn->prepare("SELECT aliade.aliade, personaje.nombre FROM aliade
-      INNER JOIN personaje ON aliade.id=personaje.id_aliade"
-    );
-      $stmt->execute();
-    
-      // set the resulting array to associative
-      $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-      foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
-        echo $v;
-      }
-    } catch(PDOException $e) {
-      echo "Error: " . $e->getMessage();
-    }
-    $conn = null;
-    echo "</table>";
- 
-?>
+
     </article>
     <article>Article2</article>
     <article>Article3</article>
