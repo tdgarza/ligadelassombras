@@ -84,3 +84,34 @@ div{
     color: white;
     mix-blend-mode: multiply;
 }
+table {
+    margin: 0 auto;
+    font-size: 12px;
+    border: 1px solid yellow;
+}
+
+h1 {
+    text-align: center;
+    color: #fcfcfc;
+    font-size: 25px;
+    font-family: 'Gill Sans', 
+        'Gill Sans MT', ' Calibri', 
+        'Trebuchet MS', 'sans-serif';
+}
+
+td {
+    background-color: #ffffff;
+    color: #000;
+    border: 1px solid rgb(247, 255, 3);
+}
+
+th,tr, th {
+    font-weight: bold;
+    border: 1px solid white;
+    padding: 1px;
+    text-align: center;
+}
+
+td {
+    font-weight: lighter;
+}
