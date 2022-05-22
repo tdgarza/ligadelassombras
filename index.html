@@ -4,16 +4,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="guns.css">
-    <link href="http://fonts.cdnfonts.com/css/mrrobot" rel="stylesheet">
-    <title>Pagina de Tomas Garza</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="main1.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js">
+    </script>
 </head>
 <body>
-    <div>
-        <video autoplay muted preload loop>
-        <source src="doctor.mp4" type"video/mp4">
-       </video> 
-       <h1>TOMAS GARZA</h1>
-    </div>
+    <section>
+        <h1>Desplegar Informacion</h1>
+  
+        <!-- TABLE CONSTRUCTION-->
+        <table id='table'>
+            <!-- HEADING FORMATION -->
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Coding Score</th>
+                <th>GFG Articles</th>
+            </tr>
+  
+            <script>
+                $(document).ready(function () {
+  
+                    // FETCHING DATA FROM JSON FILE
+                    $.getJSON("gfgdetails.json", 
+                            function (data) {
+                        var student = '';
+  
+                        // ITERATING THROUGH OBJECTS
+                        $.each(data, function (key, value) {
+  
+                            //CONSTRUCTION OF ROWS HAVING
+                            // DATA FROM JSON OBJECT
+                            student += '<tr>';
+                            student += '<td>' + 
+                                value.GFGUserName + '</td>';
+  
+                            student += '<td>' + 
+                                value.NoOfProblems + '</td>';
+  
+                            student += '<td>' + 
+                                value.TotalScore + '</td>';
+  
+                            student += '<td>' + 
+                                value.Articles + '</td>';
+  
+                            student += '</tr>';
+                        });
+                          
+                        //INSERTING ROWS INTO TABLE 
+                        $('#table').append(student);
+                    });
+                });
+            </script>
+    </section>
 </body>
 </html>
